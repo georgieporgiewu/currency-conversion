@@ -3,7 +3,7 @@ import $ from 'jquery';
 import Dropdown from 'react-dropdown'
 import './App.css';
 
-const dropDownDefaultText = "Select a currency";
+const dropDownDefaultText = "Select a  currency";
 
 class App extends Component {
 
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   getCurrencyList() {
-    return $.getJSON('http://api.fixer.io/latest')
+    return $.getJSON('https://api.fixer.io/latest')
       .then((data) => {
         let arr = Object.keys(data.rates);
         this.setState({ rates: arr });
@@ -57,7 +57,7 @@ class App extends Component {
         || this.state.selectedToRate === undefined) {
           return;
     }
-    return $.getJSON('http://api.fixer.io/latest',
+    return $.getJSON('https://api.fixer.io/latest',
                       {base:this.state.selectedFromRate})
             .then((data) => {
               this.setState({
