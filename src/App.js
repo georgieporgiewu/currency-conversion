@@ -59,7 +59,7 @@ class App extends Component {
     }
     return $.getJSON('https://api.fixer.io/latest',
                       {base:this.state.selectedFromRate})
-            .then((data) => { 
+            .then((data) => {
               this.setState({
                               calculatedResult : this.state.input * data.rates[this.state.selectedToRate]
                             });
